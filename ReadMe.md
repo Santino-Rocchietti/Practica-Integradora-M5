@@ -1,9 +1,7 @@
-# TITULO
-## CONTEXTO DEL PROYECTO 
+Proyecto Integrador M5
 ## Call Center
-![N|Solid](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyWEMAsO2fStc8YIGr9f-co5h7D84aCB_E0A&usqp=CAU)
 
-Analizar las operaciones de un Call Center de un Banco, para proponer mejoras en:
+Se  buscara analizar las operaciones de un Call Center de un Banco, para proponer mejoras en:
 * Eficiencia operativa, proponiendo mejoras operativas.
 * Mejorar la satisfacción del cliente, cumpliendo los SLA comprometidos.
 * Brindar una herramienta para la gestión y la toma de decisiones a los managers del Call Center.
@@ -11,7 +9,7 @@ Analizar las operaciones de un Call Center de un Banco, para proponer mejoras en
 En conclusión se solicita definir, construir y presentar un Dashboard que permita medir los niveles de calidad de servicio, eficiencia y productividad del Call Center.
 Para ello, se propone que definamos los KPIs adecuados para poder medir los objetivos propuestos, y definir nuevos niveles objetivos de manera de ofrecer esos niveles de SLA a terceras partes, o generar un nuevo servicio Premium para los clientes mas importantes del banco.
 
-**Preguntas a responder**
+ Objetivos a responder:
 - ¿Cuál es el nivel de servicio para los clientes Prioritarios? 
 - ¿Damos un mejor servicio que a los clientes normales?
 - ¿Qué volumen de llamadas atendemos? 
@@ -19,17 +17,19 @@ Para ello, se propone que definamos los KPIs adecuados para poder medir los obje
 - ¿Cómo es la eficiencia y productividad de nuestros agentes?
 - ¿Hay clientes recurrentes en el uso del servicio?
 - ¿Cuáles son los tipos de servicio más recurrentes?
-- ¿Podemos estimar la dotación necesaria para cumplir con una calidad de servicio determinada?  Ejemplo: si quiero que mi tiempo promedio de espera sea menor a 60 segundos?
-### Para comenzar, se hace la importación de librerías y módulos. Inicialmente, trabajaremos con pandas y csv:
+- ¿Podemos estimar la dotación necesaria para cumplir con una calidad de servicio determinada?
+
+- Proceaso:
+### Se hace la importancion de lo necesario
 ```
 import pandas as pd
 import csv
 ```
-## Se importa el CSV que contiene los datos que serán limpiados y posteriormente analizados:
+## Se importa el CSV que se utilizara a lo largo de esta actividad:
 ```
 df = pd.read_csv('Call_Center_1999_DataSet.csv', delimiter=';', encoding='UTF-8') 
 ```
-## Reporte de incidencias relacionadas con la primera vista de los datos y acciones tomadas para asegurar la integridad y limpieza de los datos:
+## Limpieza sde datos y verificacion de los mismos:
 - Se verifica la existencia de valores nulos y filas vacías que, de eliminarse, no perjudican la calidad de los datos, por lo que se procede a su eliminación.
 ```
 df.dropna(inplace=True)
@@ -50,7 +50,7 @@ df.drop(df[df['outcome']=='PHANTOM'].index,inplace=True)
 ```
 df.to_csv('callcentercorregido.csv', index=False, sep= ';')
 ```
-### Análisis Exploratorio de Datos (EDA)
+### Analisis de datos
 - Se observan los datos, tipo de datos y un ejemplo de su contenido.
 ```
 df.head(3)
@@ -363,13 +363,14 @@ plt.show()
 
 ## Análisis de los Histogramas
 
-Los histogramas presentados ofrecen una visión general de la distribución de las duraciones en tres etapas de un proceso: VRU, cola y servicio. Cada histograma nos revela características particulares sobre estos tiempos.
+Los histogramas presentados proporcionan una visión global de la distribución de las duraciones en tres fases del proceso: VRU, cola y servicio. Cada uno de ellos destaca aspectos específicos sobre estos tiempos.
 
 ### Histograma de Duración en VRU:
-La distribución de las duraciones en VRU muestra una clara asimetría positiva, lo que significa que la mayoría de los procesos tienen duraciones relativamente cortas, pero existe una proporción considerable de procesos que se extienden por periodos mucho más largos. Esta cola larga a la derecha sugiere la presencia de valores atípicos o eventos que causan demoras significativas en esta etapa.
+La distribución de los tiempos en VRU presenta una evidente asimetría positiva, indicando que la mayoría de los procesos tienen duraciones bastante cortas. Sin embargo, hay una cantidad significativa de procesos que se prolongan por periodos mucho más extensos. Esta cola hacia la derecha sugiere la existencia de valores atípicos o eventos que generan retrasos considerables en esta fase.
 
 ### Histograma de Duración en Cola:
-El histograma de las duraciones en cola presenta una forma similar al anterior, con una ligera asimetría positiva. Sin embargo, se observa que la concentración de datos se desplaza hacia valores más bajos en comparación con el histograma de VRU. Esto indica que, en promedio, los tiempos de espera en cola son menores que las duraciones totales en el sistema.
+El histograma de los tiempos de espera en cola muestra una forma parecida al anterior, con una leve asimetría positiva. No obstante, se aprecia que la concentración de datos se mueve hacia valores más bajos en comparación con el histograma de VRU. Esto sugiere que, en promedio, los tiempos de espera en cola son más cortos que los tiempos totales en el sistema.
 
 ### Histograma de Duración en Servicio:
-La distribución de las duraciones en servicio también muestra una asimetría positiva, aunque en menor medida que las otras dos. La mayoría de los procesos tienen duraciones de servicio relativamente cortas, pero al igual que en VRU, existe una cola de eventos con duraciones más largas. En términos generales, las duraciones en servicio se sitúan entre las duraciones en VRU y en cola.
+La distribución de los tiempos de servicio también presenta una asimetría positiva, aunque menos pronunciada que en los otros dos casos. La mayoría de los procesos tienen tiempos de servicio relativamente breves, pero, al igual que en VRU, se observa una cola de eventos con duraciones más largas. En general, los tiempos de servicio se encuentran entre los tiempos en VRU y los de espera en cola.
+
