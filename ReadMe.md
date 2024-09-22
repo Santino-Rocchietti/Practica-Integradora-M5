@@ -6,8 +6,8 @@ Se  buscara analizar las operaciones de un Call Center de un Banco, para propone
 * Mejorar la satisfacción del cliente, cumpliendo los SLA comprometidos.
 * Brindar una herramienta para la gestión y la toma de decisiones a los managers del Call Center.
 
-En conclusión se solicita definir, construir y presentar un Dashboard que permita medir los niveles de calidad de servicio, eficiencia y productividad del Call Center.
-Para ello, se propone que definamos los KPIs adecuados para poder medir los objetivos propuestos, y definir nuevos niveles objetivos de manera de ofrecer esos niveles de SLA a terceras partes, o generar un nuevo servicio Premium para los clientes mas importantes del banco.
+En resumen, se solicita diseñar, desarrollar y presentar un Dashboard que permita evaluar los niveles de calidad del servicio, eficiencia y productividad del Call Center. Para lograrlo, se propone identificar los KPIs adecuados que permitan medir los objetivos planteados, así como establecer nuevos niveles objetivo que posibiliten ofrecer estos estándares de SLA a terceros o crear un servicio Premium para los clientes más importantes del banco.
+
 
  Objetivos a responder:
 - ¿Cuál es el nivel de servicio para los clientes Prioritarios? 
@@ -19,7 +19,7 @@ Para ello, se propone que definamos los KPIs adecuados para poder medir los obje
 - ¿Cuáles son los tipos de servicio más recurrentes?
 - ¿Podemos estimar la dotación necesaria para cumplir con una calidad de servicio determinada?
 
-- Proceaso:
+- Proceso:
 ### Se hace la importancion de lo necesario
 ```
 import pandas as pd
@@ -29,7 +29,7 @@ import csv
 ```
 df = pd.read_csv('Call_Center_1999_DataSet.csv', delimiter=';', encoding='UTF-8') 
 ```
-## Limpieza sde datos y verificacion de los mismos:
+## Limpieza de datos y verificacion de los mismos:
 - Se verifica la existencia de valores nulos y filas vacías que, de eliminarse, no perjudican la calidad de los datos, por lo que se procede a su eliminación.
 ```
 df.dropna(inplace=True)
